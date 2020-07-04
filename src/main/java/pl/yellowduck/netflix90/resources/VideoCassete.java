@@ -22,4 +22,15 @@ public class VideoCassete {
     }
 
 
+    public void printOut() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(" | ").append(this.id).append(" | ")
+                .append(this.title).append(" | ")
+                .append(category).append(" | ")
+                .append(price).append(" | ")
+                .append(director.toString()).append(" | ")
+                .append(actor.toString()).append(" |");
+        System.out.println(builder.toString());
+
+    }
 }

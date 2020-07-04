@@ -6,6 +6,14 @@ public class Actor extends Person {
         super(firstName, lastName, gender);
     }
 
+    /*
+     przeniesione do person zeby nie powtarzac
+     @Override
+
+     public String toString() {                   //przysłonięcie metody zeby dobrze się wyświetlał
+         return firstName + " " + lastName;
+     }
+ */
     @Override
     public void introduce() {
         if (gender.equals(Gender.MALE)) {   //mozemy == zamiast equals mimo ze to obiekt, ponieważ porównujemy adresy tego samego obiektu
@@ -25,5 +33,7 @@ public class Actor extends Person {
         }
 
          */
+
+
     }
 }

@@ -23,4 +23,8 @@ public abstract class Person {
 
     public abstract void introduce();   //jeśli jest chociaż jedna metoda abstrakcyjna to klasa też musi być abstrakcyjna
 
+    @Override
+    public String toString() {
+        return  firstName + " " + lastName;
+    }
 }

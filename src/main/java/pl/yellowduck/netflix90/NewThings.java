@@ -14,5 +14,7 @@ public class NewThings {
 
 
         //typy generyczne - jest pewne zachowanie wspólne które pozwale przechowywać wspólne elementy
+
+        //klasa dziedziczy po jednej klasie poniewaz mogą dpulikowac sie funkcje
     }
 }
