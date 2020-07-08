@@ -1,5 +1,9 @@
 package pl.yellowduck.netflix90.resources;
 
+
+import lombok.Getter;
+
+
 public class Actor extends Person {
 
     public Actor(String firstName, String lastName, Gender gender) {

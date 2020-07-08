@@ -1,5 +1,8 @@
 package pl.yellowduck.netflix90.resources;
 
+import lombok.Getter;
+
+@Getter
 public abstract class Person {
 
     protected String firstName;     //gdy pola były pivate nie można było wykorzystać ani w aktorze ani w reżyserze wiec trzeba było zmienić dostęp
@@ -25,6 +28,6 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return  firstName + " " + lastName;
+        return firstName + " " + lastName;
     }
 }
