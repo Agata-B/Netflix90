@@ -1,25 +1,20 @@
 package pl.yellowduck.netflix90.resources.client;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
 public class ClientAddress {
 
     private String street;
-    private int homeNo;
-    private int flatNo;
+    private String homeNo;
+    private String flatNo;
     private String city;
     private String postalCode;
 
-    public ClientAddress(String street, int homeNo, int flatNo, String city, String postalCode) {
-        this.street = street;
-        this.homeNo = homeNo;
-        this.flatNo = flatNo;
-        this.city = city;
-        this.postalCode = postalCode;
-    }
 
     public String toString() {
         return "Ulica: " + street + ", nr domu: " + homeNo + ", nr piętra: " +
