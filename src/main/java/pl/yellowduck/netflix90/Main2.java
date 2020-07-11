@@ -24,7 +24,7 @@ public class Main2 {
         actors.add(juliette);
         actors.add(greg);
 
-        VideoCassete theRoom = new VideoCassete("VID001", BigDecimal.valueOf(20), "The Room", tommy, Category.DRAMA, actors);
+        VideoCassette theRoom = new VideoCassette("VID001", BigDecimal.valueOf(20), "The Room", tommy, Category.DRAMA, actors);
 
         theRoom.printOut();
 
