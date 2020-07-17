@@ -6,45 +6,43 @@ import org.junit.Test;
 import java.math.BigDecimal;
 import java.util.Set;
 
-
-public class VideoCassetteCatalogTest {
-
-    //test sprawdza czy utworzony katalog jest wyjsciowo pusty
+public class VideoCassetteTest {
     @Test
-    public void shouldCreateCatalogThatIsEmpty(){
-        //when
-        IVideoCassetteCatalog catalog = new VideoCassetteCatalog();
-        //then
-        Assertions.assertThat(catalog.getVideoCassettes()).isEmpty();
-    }
-
-    @Test
-    public void shouldAddVideoCassetteToCatalog() throws CassetteAddExepction {
+    public void shouldVideoCassettesIsEqual() {
         //given
         IVideoCassetteCatalog catalog = new VideoCassetteCatalog();
         VideoCassette videoCassette = new VideoCassette("V001", BigDecimal.valueOf(20), "The room",
                 new Director("Tommy", "Wiseau", Gender.MALE), Category.DRAMA,
                 Set.of(new Actor("Tomy", "Wiseau", Gender.MALE)));
+
+        VideoCassette videoCassette2 = new VideoCassette("V001", BigDecimal.valueOf(20), "The room",
+                new Director("Tommy", "Wiseau", Gender.MALE), Category.DRAMA,
+                Set.of(new Actor("Tomy", "Wiseau", Gender.MALE)));
         //when
-        catalog.addVideoCassette(videoCassette);
+        boolean result = videoCassette.equals(videoCassette2);
+
         //then
-        Assertions.assertThat(catalog.getVideoCassettes()).hasSize(1);       // assertion -> if(result == expected){throw new TestExepction}
+        Assertions.assertThat(result).isTrue();
+        Assertions.assertThat(videoCassette.hashCode()).isEqualTo(videoCassette2.hashCode());      //zeby test przeszedl w VideoCassette trzeba bylo wygenerowac hasheCode to equals
     }
 
+
     @Test
-    public void shouldAdd2CassettesToCatalogThaTWillReturn2Cassettes() throws CassetteAddExepction {
-       //given
+    public void shouldVideoCassettesIsNotEqual() {
+        //given
         IVideoCassetteCatalog catalog = new VideoCassetteCatalog();
         VideoCassette videoCassette = new VideoCassette("V001", BigDecimal.valueOf(20), "The room",
-                new Director("Tommy", "Wiseau", Gender.MALE), Category.DRAMA,
+                new Director("Tommy", "Wiseau",Gender.MALE), Category.DRAMA,
                 Set.of(new Actor("Tomy", "Wiseau", Gender.MALE)));
 
         VideoCassette videoCassette2 = new VideoCassette("V002", BigDecimal.valueOf(20), "The room",
                 new Director("Tommy", "Wiseau", Gender.MALE), Category.DRAMA,
                 Set.of(new Actor("Tomy", "Wiseau", Gender.MALE)));
         //when
-        catalog.addVideoCassetteAll(videoCassette, videoCassette2);
+        boolean result = videoCassette.equals(videoCassette2);
+
         //then
-        Assertions.assertThat(catalog.getVideoCassettes()).hasSize(2);
+        Assertions.assertThat(result).isFalse();
+        Assertions.assertThat(videoCassette.hashCode()).isEqualTo(videoCassette2.hashCode());
     }
 }

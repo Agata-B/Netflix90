@@ -1,0 +1,2 @@
+{"id":"V001","price":20,"title":"The room","director":{"firstName":"Tommy","lastName":"Wiseau","gender":"MALE"},"category":"DRAMA","actor":[{"firstName":"Tommy","lastName":"Wiseau","gender":"MALE"}]}
+{"id":"V002","price":20,"title":"The room","director":{"firstName":"Tommy","lastName":"Wiseau","gender":"MALE"},"category":"DRAMA","actor":[{"firstName":"Tommy","lastName":"Wiseau","gender":"MALE"}]}

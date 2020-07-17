@@ -18,6 +18,13 @@ public class VideoCassetteCatalog implements IVideoCassetteCatalog {
         cassettes.add(videoCassette);
     }
 
+    @Override
+    public void addVideoCassetteAll(VideoCassette... videoCassette) {
+        for (VideoCassette cassette :videoCassette) {
+            addVideoCassette(cassette);
+        }
+    }
+
     public List<VideoCassette> getVideoCassettes() {
         return cassettes;
     }

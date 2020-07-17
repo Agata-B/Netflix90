@@ -14,7 +14,7 @@ public class Main2 {
     public static void main(String[] args) {
         System.out.println("Hello Netflix90");
 
-        Director tommy = new Director("Tommy", "Wiseau");
+        Director tommy = new Director("Tommy", "Wiseau", MALE);
         Actor tommyActor = new Actor("Tommy", "Wiseau", MALE);
         Actor juliette = new Actor("Juliette", "Danielle", Gender.FEMALE);
         Actor greg = new Actor("Greg", "Sestero", MALE);
@@ -26,7 +26,6 @@ public class Main2 {
 
         VideoCassette theRoom = new VideoCassette("VID001", BigDecimal.valueOf(20), "The Room", tommy, Category.DRAMA, actors);
 
-        theRoom.printOut();
 
         //todo zaimplementowac  klienta (jego dane vip czy zwykły) ewentualnie wypożyczenie,
 

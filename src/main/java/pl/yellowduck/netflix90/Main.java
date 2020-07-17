@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello Netflix90");
 
-        Director tommy = new Director("Tommy", "Wiseau");
+        Director tommy = new Director("Tommy", "Wiseau", Gender.MALE);
         Actor tommyActor = new Actor("Tommy", "Wiseau", Gender.MALE);
         Actor juliette = new Actor("Juliette", "Danielle", Gender.FEMALE);
         Actor greg = new Actor("Greg", "Sestero", Gender.FEMALE);

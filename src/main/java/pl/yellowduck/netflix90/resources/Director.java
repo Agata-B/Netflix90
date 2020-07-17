@@ -1,15 +1,26 @@
 package pl.yellowduck.netflix90.resources;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 
+@Getter
 public class Director extends Person {
 
-    public Director(String firstName, String lastName) {
-        super(firstName, lastName);
+    /* public Director(String firstName, String lastName, Gender gender) {
+         super(firstName, lastName, gender);
+     }
+ */
+    @JsonCreator
+    public Director(@JsonProperty("firstName") String firstName,
+                    @JsonProperty("lastName") String lastName,
+                    @JsonProperty("gender") Gender gender) {
+        super(firstName, lastName, gender);
     }
 
     @Override
     public void introduce() {
-        System.out.println("My name is " + firstName + " " + lastName + ". I am director.");
+  /*      System.out.println("My name is " + firstName + " " + lastName + ". I am director.");
     }
 
     /*
@@ -18,5 +29,7 @@ public class Director extends Person {
     public String toString() {
         return firstName + " " + lastName;
         }
-     */
+
+    */
+    }
 }
