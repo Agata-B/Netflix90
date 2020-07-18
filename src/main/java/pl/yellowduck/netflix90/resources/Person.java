@@ -7,7 +7,7 @@ public abstract class Person {
 
     protected String firstName;     //gdy pola były pivate nie można było wykorzystać ani w aktorze ani w reżyserze wiec trzeba było zmienić dostęp
     protected String lastName;
-    protected final Gender gender;
+    protected Gender gender;
 
     //polimorfizm, nasze obiekty pozwalają wywołać metodę ze wskazanej instancji    (metode abstrakcyjna trzeba przesłonić)
 
@@ -15,7 +15,6 @@ public abstract class Person {
     public Person(String firstName, String lastName) {      //najpierw tworzymy konstruktor w kalsie z której jest dziedziczone, pózniej w tych które z niej dziedziczą
         this.firstName = firstName;
         this.lastName = lastName;
-        gender = null;
     }
 
     public Person(String firstName, String lastName, Gender gender) {
