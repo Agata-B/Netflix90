@@ -2,7 +2,7 @@ package pl.yellowduck.netflix90.films;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import pl.yellowduck.netflix90.resources.CassetteAddExepction;
+import pl.yellowduck.netflix90.resources.CatalogAddExepction;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -34,30 +34,29 @@ public class FileSystemVideoCassetteCatalog extends UniqueVideoCassetteCatalog {
                 VideoCassette videoCassette = objectMapper.readValue(line, VideoCassette.class);
                 super.addVideoCassette(videoCassette);
             }
-        } catch (IOException | CassetteAddExepction e) {
+        } catch (IOException | CatalogAddExepction e) {
             System.out.println(e.getMessage());
             throw new CassetteReadException("Cannot read file");
         }
     }
 
-    //stary sposob tej metody skopiowac od przemka
     @Override
-    public void addVideoCassette(VideoCassette videoCassette) throws CassetteAddExepction {
+    public void addVideoCassette(VideoCassette videoCassette) throws CatalogAddExepction {
         super.addVideoCassette(videoCassette);
         try (BufferedWriter bufferedWriter = Files.newBufferedWriter(file, StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
             String string = objectMapper.writeValueAsString(videoCassette);                      // transformacja (serilizacja) do stringa (JSON format) obiektu
             bufferedWriter.write(string);
         } catch (FileNotFoundException e) {
-            throw new CassetteAddExepction(e.getMessage());
+            throw new CatalogAddExepction(e.getMessage());
         } catch (IOException e) {
             System.out.println(e.getMessage());
-            throw new CassetteAddExepction(e.getMessage());
+            throw new CatalogAddExepction(e.getMessage());
         }
 
     }
 
     @Override
-    public void addVideoCassetteAll(VideoCassette... videoCassette) throws CassetteAddExepction {
+    public void addVideoCassetteAll(VideoCassette... videoCassette) throws CatalogAddExepction {
         try (BufferedWriter bufferedWriter = Files.newBufferedWriter(file, StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
             for (VideoCassette cassette : videoCassette) {
                 super.addVideoCassette(cassette);
@@ -66,10 +65,10 @@ public class FileSystemVideoCassetteCatalog extends UniqueVideoCassetteCatalog {
                 bufferedWriter.newLine();
             }
         } catch (FileNotFoundException e) {
-            throw new CassetteAddExepction(e.getMessage());
+            throw new CatalogAddExepction(e.getMessage());
         } catch (IOException e) {
             System.out.println(e.getMessage());
-            throw new CassetteAddExepction(e.getMessage());
+            throw new CatalogAddExepction(e.getMessage());
         }
     }
 }

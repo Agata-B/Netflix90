@@ -21,7 +21,7 @@ public class VideoCassetteCatalogTest {
     }
 
     @Test
-    public void shouldAddVideoCassetteToCatalog() throws CassetteAddExepction {
+    public void shouldAddVideoCassetteToCatalog() throws CatalogAddExepction {
         //given
         IVideoCassetteCatalog catalog = new VideoCassetteCatalog();
         VideoCassette videoCassette = new VideoCassette("V001", BigDecimal.valueOf(20), "The room",
@@ -34,7 +34,7 @@ public class VideoCassetteCatalogTest {
     }
 
     @Test
-    public void shouldAdd2CassettesToCatalogThaTWillReturn2Cassettes() throws CassetteAddExepction {
+    public void shouldAdd2CassettesToCatalogThaTWillReturn2Cassettes() throws CatalogAddExepction {
        //given
         IVideoCassetteCatalog catalog = new VideoCassetteCatalog();
         VideoCassette videoCassette = new VideoCassette("V001", BigDecimal.valueOf(20), "The room",

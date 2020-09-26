@@ -1,6 +1,6 @@
 package pl.yellowduck.netflix90.films;
 
-import pl.yellowduck.netflix90.resources.CassetteAddExepction;
+import pl.yellowduck.netflix90.resources.CatalogAddExepction;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -12,21 +12,21 @@ public class UniqueVideoCassetteCatalog implements IVideoCassetteCatalog {
     private final Set<VideoCassette> cassettes = new HashSet<>();
 
     @Override
-    public void addVideoCassette(VideoCassette videoCassette) throws CassetteAddExepction {
-        if (!cassettes.add(videoCassette)) {
-            throw new CassetteAddExepction("Cassette already add.");
+    public void add(VideoCassette videoCassette) throws CatalogAddExepction {
+        if(!cassettes.add(videoCassette)) {
+            throw new CatalogAddExepction("Cassette already added");
         }
     }
 
     @Override
-    public void addVideoCassetteAll(VideoCassette... videoCassette) throws CassetteAddExepction {
+    public void addAll(VideoCassette... videoCassette) throws CatalogAddExepction {
         for (VideoCassette cassette : videoCassette) {
-            addVideoCassette(cassette);
+            add(cassette);
         }
     }
 
     @Override
-    public List<VideoCassette> getVideoCassettes() {
-        return new ArrayList<>(cassettes);       //konwersja set na liste !!!
+    public List<VideoCassette> getAll() {
+        return new ArrayList<>(cassettes);
     }
 }

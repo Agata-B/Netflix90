@@ -11,7 +11,7 @@ import java.util.Set;
 public class UniqueVideoCassetteCatalogTest {
 
     @Test
-    public void shouldNotAddSameIdVideoCassette() throws CassetteAddExepction {
+    public void shouldNotAddSameIdVideoCassette() throws CatalogAddExepction {
         //given
         VideoCassette videoCassette = new VideoCassette("V001", BigDecimal.valueOf(20), "The room",
                 new Director("Tommy", "Wiseau", Gender.MALE), Category.DRAMA,

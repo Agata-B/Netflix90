@@ -32,7 +32,7 @@ public class FileSystemVideoCassetteCatalogTest {
         try {
             catalog.addVideoCassetteAll(videoCassette1, videoCassette2);
             System.out.println(catalog.getVideoCassettes());
-        } catch (CassetteAddExepction e) {
+        } catch (CatalogAddExepction e) {
             e.printStackTrace();
         }
     }

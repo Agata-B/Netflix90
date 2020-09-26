@@ -3,10 +3,11 @@ package pl.yellowduck.netflix90.films;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
 import pl.yellowduck.netflix90.common.Gender;
 import pl.yellowduck.netflix90.common.Person;
 
-
+@Getter
 public class Actor extends Person {
 
    /* public Actor(String firstName, String lastName, Gender gender) {
@@ -37,19 +38,20 @@ public class Actor extends Person {
         } else {
             System.out.println("My name is " + firstName + " " + lastName + ". I am actress.");
         }
+*/
 
-        /*like this
         switch (this.gender) {
             case MALE:
-                System.out.println("My name is " + firstName + " " + lastName + ". I am actor.");
+                System.out.println("My name is " + getFirstName() + " " + getLastName() + ". I am actor.");
                 break;
             case FEMALE:
-                System.out.println("My name is " + firstName + " " + lastName + ". I am actress.");
+                System.out.println("My name is " + getFirstName() + " " + getLastName() + ". I am actress.");
                 break;
         }
+    }
 
-         */
-
-
-}
+    @Override
+    public String toString() {
+        return "Actor: " + getFirstName() + " " + getLastName();
+    }
 }

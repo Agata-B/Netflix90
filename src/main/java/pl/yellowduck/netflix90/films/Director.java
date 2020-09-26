@@ -22,16 +22,8 @@ public class Director extends Person {
 
     @Override
     public void introduce() {
-  /*      System.out.println("My name is " + firstName + " " + lastName + ". I am director.");
+    System.out.println("My name is " + getFirstName() + " " + getLastName() + ". I am director.");
     }
 
-    /*
-    przeniesiona do person zeby nie powtarzac
-    @Override
-    public String toString() {
-        return firstName + " " + lastName;
-        }
 
-    */
-    }
 }

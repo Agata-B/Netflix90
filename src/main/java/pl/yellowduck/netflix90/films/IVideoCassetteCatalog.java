@@ -1,13 +1,14 @@
 package pl.yellowduck.netflix90.films;
 
-import pl.yellowduck.netflix90.resources.CassetteAddExepction;
+import pl.yellowduck.netflix90.resources.CatalogAddExepction;
 
 import java.util.List;
 
 public interface IVideoCassetteCatalog {                     //mozna to zrobic przez extract interface
 
-    void addVideoCassette(VideoCassette videoCassette) throws CassetteAddExepction;
-    void addVideoCassetteAll(VideoCassette... videoCassette) throws CassetteAddExepction;
+    void add(VideoCassette videoCassette) throws CatalogAddExepction;
 
-    List<VideoCassette> getVideoCassettes();
+    void addAll(VideoCassette... videoCassette) throws CatalogAddExepction;
+
+    List<VideoCassette> getAll();
 }
