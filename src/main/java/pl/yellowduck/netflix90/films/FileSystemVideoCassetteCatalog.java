@@ -1,11 +1,8 @@
-package pl.yellowduck.netflix90.resources.client;
+package pl.yellowduck.netflix90.films;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import pl.yellowduck.netflix90.resources.CassetteAddExepction;
-import pl.yellowduck.netflix90.resources.CassetteReadException;
-import pl.yellowduck.netflix90.resources.UniqueVideoCassetteCatalog;
-import pl.yellowduck.netflix90.resources.VideoCassette;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -16,62 +13,63 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
-public class FileSystemClientCatalog extends ClientCatalog {
+public class FileSystemVideoCassetteCatalog extends UniqueVideoCassetteCatalog {
 
-    private final Path file = Paths.get("Clients.txt");
+    private final Path file = Paths.get("Cassetts.txt");
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public FileSystemClientCatalog() {
+    //nie uzywac throws w konstruktorach  zamieniemy dziedziczenie w wyjatku z Exeption na RuntimeExepction
+    public FileSystemVideoCassetteCatalog() {
         try {
             //tworzymy plik jesli nie istnieje
             if (!Files.exists(file)) {
                 Files.createFile(file);
             }
         } catch (IOException e) {
-            throw new ClientReadException("Cannot create file");
+            throw new CassetteReadException("Cannot create file");
         }
         try (BufferedReader bufferedReader = Files.newBufferedReader(file)) {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
-                Client client = objectMapper.readValue(line, Client.class);
-                super.addClient(client);
+                VideoCassette videoCassette = objectMapper.readValue(line, VideoCassette.class);
+                super.addVideoCassette(videoCassette);
             }
-        } catch (IOException | ClientAddException e) {
+        } catch (IOException | CassetteAddExepction e) {
             System.out.println(e.getMessage());
-            throw new ClientReadException("Cannot read file");
+            throw new CassetteReadException("Cannot read file");
         }
     }
 
-
+    //stary sposob tej metody skopiowac od przemka
     @Override
-    public void addClient(Client client) throws ClientAddException {
-        super.addClient(client);
+    public void addVideoCassette(VideoCassette videoCassette) throws CassetteAddExepction {
+        super.addVideoCassette(videoCassette);
         try (BufferedWriter bufferedWriter = Files.newBufferedWriter(file, StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
-            String string = objectMapper.writeValueAsString(client);
+            String string = objectMapper.writeValueAsString(videoCassette);                      // transformacja (serilizacja) do stringa (JSON format) obiektu
             bufferedWriter.write(string);
         } catch (FileNotFoundException e) {
-            throw new ClientAddException(e.getMessage());
+            throw new CassetteAddExepction(e.getMessage());
         } catch (IOException e) {
             System.out.println(e.getMessage());
-            throw new ClientAddException(e.getMessage());
+            throw new CassetteAddExepction(e.getMessage());
         }
 
     }
 
     @Override
-    public void addClientAll(Client... clients) throws ClientAddException {
+    public void addVideoCassetteAll(VideoCassette... videoCassette) throws CassetteAddExepction {
         try (BufferedWriter bufferedWriter = Files.newBufferedWriter(file, StandardOpenOption.CREATE, StandardOpenOption.APPEND)) {
-            for (Client client : clients) {
-                super.addClientAll(client);
-                String string = objectMapper.writeValueAsString(client);
+            for (VideoCassette cassette : videoCassette) {
+                super.addVideoCassette(cassette);
+                String string = objectMapper.writeValueAsString(cassette);
                 bufferedWriter.write(string);
                 bufferedWriter.newLine();
             }
         } catch (FileNotFoundException e) {
-            throw new ClientAddException(e.getMessage());
+            throw new CassetteAddExepction(e.getMessage());
         } catch (IOException e) {
             System.out.println(e.getMessage());
-            throw new ClientAddException(e.getMessage());
+            throw new CassetteAddExepction(e.getMessage());
         }
     }
 }

@@ -1,7 +1,4 @@
-package pl.yellowduck.netflix90.resources.client;
-
-import pl.yellowduck.netflix90.resources.CassetteAddExepction;
-import pl.yellowduck.netflix90.resources.VideoCassette;
+package pl.yellowduck.netflix90.client;
 
 import java.util.List;
 

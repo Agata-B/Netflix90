@@ -1,4 +1,4 @@
-package pl.yellowduck.netflix90.resources.client;
+package pl.yellowduck.netflix90.client;
 
 public enum ClientStatus {
 

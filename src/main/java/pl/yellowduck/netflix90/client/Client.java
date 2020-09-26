@@ -1,15 +1,10 @@
-package pl.yellowduck.netflix90.resources.client;
+package pl.yellowduck.netflix90.client;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
-import pl.yellowduck.netflix90.resources.Actor;
-import pl.yellowduck.netflix90.resources.Category;
-import pl.yellowduck.netflix90.resources.Director;
-import pl.yellowduck.netflix90.resources.Person;
+import pl.yellowduck.netflix90.common.Person;
 
-import java.math.BigDecimal;
-import java.util.Set;
 @Getter
 public class Client extends Person {
     private String Id;

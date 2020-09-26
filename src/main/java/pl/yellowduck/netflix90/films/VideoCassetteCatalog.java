@@ -1,4 +1,4 @@
-package pl.yellowduck.netflix90.resources;
+package pl.yellowduck.netflix90.films;
 
 
 /*
@@ -6,6 +6,9 @@ package pl.yellowduck.netflix90.resources;
 * @author przemek
  *
  */
+
+import pl.yellowduck.netflix90.films.IVideoCassetteCatalog;
+import pl.yellowduck.netflix90.films.VideoCassette;
 
 import java.util.ArrayList;
 import java.util.List;

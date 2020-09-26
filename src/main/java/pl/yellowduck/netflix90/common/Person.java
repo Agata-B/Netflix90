@@ -1,6 +1,7 @@
-package pl.yellowduck.netflix90.resources;
+package pl.yellowduck.netflix90.common;
 
 import lombok.Getter;
+import pl.yellowduck.netflix90.common.Gender;
 
 @Getter
 public abstract class Person {

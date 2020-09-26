@@ -1,9 +1,10 @@
 package pl.yellowduck.netflix90.resources;
 
+import pl.yellowduck.netflix90.common.Gender;
+import pl.yellowduck.netflix90.films.*;
+
 import java.math.BigDecimal;
 import java.util.Set;
-
-import static org.junit.Assert.*;
 
 public class FileSystemVideoCassetteCatalogTest {
 

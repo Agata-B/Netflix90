@@ -1,11 +1,10 @@
 package pl.yellowduck.netflix90;
 
-import pl.yellowduck.netflix90.resources.Actor;
-import pl.yellowduck.netflix90.resources.Director;
-import pl.yellowduck.netflix90.resources.Gender;
-import pl.yellowduck.netflix90.resources.Person;
+import pl.yellowduck.netflix90.films.Actor;
+import pl.yellowduck.netflix90.films.Director;
+import pl.yellowduck.netflix90.common.Gender;
+import pl.yellowduck.netflix90.common.Person;
 
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 

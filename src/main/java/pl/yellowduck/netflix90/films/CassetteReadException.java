@@ -1,4 +1,4 @@
-package pl.yellowduck.netflix90.resources;
+package pl.yellowduck.netflix90.films;
 
 public class CassetteReadException extends RuntimeException {
 

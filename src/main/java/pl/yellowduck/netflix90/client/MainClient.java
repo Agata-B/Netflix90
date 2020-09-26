@@ -1,6 +1,4 @@
-package pl.yellowduck.netflix90.resources.client;
-
-import pl.yellowduck.netflix90.resources.FileSystemVideoCassetteCatalog;
+package pl.yellowduck.netflix90.client;
 
 public class MainClient {
     public static void main(String[] args) {
@@ -12,6 +10,7 @@ public class MainClient {
 
         ClientAddress clientAddress1 = new ClientAddress("Kolorowa", "2", "2", "Płock", "00-000");
         Client client1 = new Client("002a", "Ala", "Kos", clientAddress1, ClientStatus.VIP);
+        Client client2 = new Client("003a", "Ala", "Kos", clientAddress1, ClientStatus.VIP);
 
 
      //   IClientCatalog catalog = new ClientCatalog();
